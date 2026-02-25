@@ -14,6 +14,7 @@ namespace DynamiteMod
             bool firstEvent,
             ref EnumHandHandling handling)
         {
+            byEntity?.World?.Logger?.Notification("[dynamitemod] Dynamite right click triggered");
             if (!firstEvent) return;
             if (byEntity.World.Side != EnumAppSide.Server) return;
 

@@ -1,11 +1,9 @@
 {
   "code": "dynamite",
-  "class": "DynamiteMod.EntityDynamite",
-
+  "class": "EntityDynamite",
   "collisionBox": {
     "size": { "x": 0.3, "y": 0.3, "z": 0.3 }
   },
-
   "selectionBox": {
     "size": { "x": 0.3, "y": 0.3, "z": 0.3 }
   }
