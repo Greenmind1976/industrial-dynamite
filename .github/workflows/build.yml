@@ -77,7 +77,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
-          path: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}.zip
+          path: |
+            build/modinfo.json
+            build/dynamitemod.dll
+            build/assets
 
       # ---------------------------
       # Attach to Release
@@ -86,4 +89,8 @@ jobs:
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}.zip
+          name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
+          path: |
+            build/modinfo.json
+            build/dynamitemod.dll
+            build/assets
