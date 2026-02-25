@@ -4,7 +4,7 @@ namespace DynamiteMod
 {
     public class DynamiteMod : ModSystem
     {
-        public override void Start(ICoreAPI api)
+        public override void StartPre(ICoreAPI api)
         {
             api.RegisterItemClass("ItemDynamite", typeof(ItemDynamite));
             api.RegisterEntity("dynamite", typeof(EntityDynamite));
