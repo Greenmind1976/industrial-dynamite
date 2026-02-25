@@ -1,0 +1,21 @@
+{
+  "code": "dynamite",
+  "class": "ItemDynamite",
+
+  "variantgroups": [
+    {
+      "code": "cap",
+      "states": [ "copper", "bronze", "iron", "steel", "titanium" ]
+    }
+  ],
+
+  "stackSize": 16,
+
+  "creativeinventory": {
+    "general": [ "*" ]
+  },
+
+  "textures": {
+    "all": { "base": "dynamitemod:item/dynamite-{cap}" }
+  }
+}

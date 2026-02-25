@@ -1,0 +1,13 @@
+{
+  "type": "shapeless",
+  "ingredients": [
+    { "type": "item", "code": "game:blastingpowder", "quantity": 2 },
+    { "type": "item", "code": "game:linen" },
+    { "type": "item", "code": "game:bronzenugget" }
+  ],
+  "output": {
+    "type": "item",
+    "code": "dynamitemod:dynamite-cap-bronze",
+    "quantity": 2
+  }
+}

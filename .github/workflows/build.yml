@@ -1,0 +1,69 @@
+name: Build Industrial Dynamite
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+env:
+  PROJECT_PATH: src/dynamitemod
+  OUTPUT_DIR: build
+  DLL_NAME: dynamitemod.dll
+  MOD_NAME: industrial-dynamite
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore ${{ env.PROJECT_PATH }}
+
+      - name: Build
+        run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
+
+      - name: Prepare package
+        run: |
+          mkdir -p $OUTPUT_DIR
+          cp $PROJECT_PATH/bin/Release/net8.0/$DLL_NAME $OUTPUT_DIR/
+          cp -r assets $OUTPUT_DIR/
+
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "VERSION=beta-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=dev-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create zip
+        run: |
+          cd $OUTPUT_DIR
+          zip -r $MOD_NAME-${{ steps.version.outputs.VERSION }}.zip dynamitemod.dll assets
+
+      - name: Upload artifact (PR / Push)
+        if: github.event_name != 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: industrial-dynamite-${{ steps.version.outputs.VERSION }}
+          path: build/*.zip
+
+      - name: Upload to Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/*.zip

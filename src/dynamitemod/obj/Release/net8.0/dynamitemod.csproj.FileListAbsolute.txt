@@ -1,0 +1,12 @@
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/bin/Release/net8.0/dynamitemod.deps.json
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/bin/Release/net8.0/dynamitemod.dll
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/bin/Release/net8.0/dynamitemod.pdb
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.csproj.AssemblyReference.cache
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.GeneratedMSBuildEditorConfig.editorconfig
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.AssemblyInfoInputs.cache
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.AssemblyInfo.cs
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.csproj.CoreCompileInputs.cache
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.dll
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/refint/dynamitemod.dll
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/dynamitemod.pdb
+/Users/garretcoffman/Documents/VSMods/industrial-dynamite/src/dynamitemod/obj/Release/net8.0/ref/dynamitemod.dll

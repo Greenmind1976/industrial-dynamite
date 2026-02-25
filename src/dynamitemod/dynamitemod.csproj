@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>../../lib/VintagestoryAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="VintagestoryLib">
+      <HintPath>../../lib/VintagestoryLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="Vintagestory">
+      <HintPath>../../lib/Vintagestory.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
