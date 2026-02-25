@@ -60,34 +60,7 @@ jobs:
       # Create correct VS zip
       # ---------------------------
       - name: Upload artifact (PR / Push)
-        if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
-          path: |
-            build/modinfo.json
-            build/dynamitemod.dll
-            build/assets
-
-      # ---------------------------
-      # Upload artifact
-      # ---------------------------
-      - name: Upload artifact (PR / Push)
-        if: github.event_name != 'release'
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
-          path: |
-            build/modinfo.json
-            build/dynamitemod.dll
-            build/assets
-
-      # ---------------------------
-      # Attach to Release
-      # ---------------------------
-      - name: Upload to Release
-        if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2
         with:
           name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
           path: |
