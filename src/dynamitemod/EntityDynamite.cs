@@ -1,5 +1,6 @@
 using System;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.MathTools;
 
 namespace DynamiteMod
@@ -10,11 +11,12 @@ namespace DynamiteMod
         private float fuseTime;
         private string cap;
 
-        public override void Initialize(EntityProperties properties)
+        public override void OnEntitySpawn()
         {
-            base.Initialize(properties);
+            base.OnEntitySpawn();
 
             cap = Attributes.GetString("cap", "copper");
+
             fuseTime = cap == "titanium" ? 5f : 3f;
             timer = 0f;
         }
