@@ -14,9 +14,12 @@ namespace DynamiteMod
             bool firstEvent,
             ref EnumHandHandling handling)
         {
+            if (!firstEvent) return;
+            if (byEntity.World.Side != EnumAppSide.Server) return;
+
             handling = EnumHandHandling.PreventDefault;
 
-            if (byEntity?.World == null || slot?.Itemstack == null) return;
+            if (slot?.Itemstack == null) return;
 
             string cap = slot.Itemstack.Collectible.Variant?["cap"] ?? "copper";
             IWorldAccessor world = byEntity.World;
@@ -34,20 +37,28 @@ namespace DynamiteMod
 
         private void ThrowCharge(IWorldAccessor world, ItemSlot slot, EntityAgent byEntity, string cap)
         {
-            EntityProperties type = world.GetEntityType(new AssetLocation("dynamitemod", "dynamite"));
+            EntityProperties type = world.GetEntityType(
+                new AssetLocation("dynamitemod", "dynamite")
+            );
             if (type == null) return;
 
             Entity entity = world.ClassRegistry.CreateEntity(type);
             if (entity == null) return;
 
-            entity.ServerPos.SetPos(byEntity.Pos.X, byEntity.Pos.Y + 1.4, byEntity.Pos.Z);
+            entity.ServerPos.SetPos(
+                byEntity.Pos.X,
+                byEntity.Pos.Y + 1.4,
+                byEntity.Pos.Z
+            );
 
             Vec3f viewf = byEntity.SidedPos.GetViewVector();
             Vec3d view = new Vec3d(viewf.X, viewf.Y, viewf.Z).Normalize();
 
-            entity.ServerPos.Motion.X = view.X * 0.9;
-            entity.ServerPos.Motion.Y = view.Y * 0.6;
-            entity.ServerPos.Motion.Z = view.Z * 0.9;
+            entity.ServerPos.Motion.Set(
+                view.X * 0.9,
+                view.Y * 0.6,
+                view.Z * 0.9
+            );
 
             entity.Pos.SetFrom(entity.ServerPos);
 
@@ -63,9 +74,16 @@ namespace DynamiteMod
             slot.MarkDirty();
         }
 
-        private void PlaceCharge(IWorldAccessor world, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, string cap)
+        private void PlaceCharge(
+            IWorldAccessor world,
+            ItemSlot slot,
+            EntityAgent byEntity,
+            BlockSelection blockSel,
+            string cap)
         {
-            EntityProperties type = world.GetEntityType(new AssetLocation("dynamitemod", "dynamite"));
+            EntityProperties type = world.GetEntityType(
+                new AssetLocation("dynamitemod", "dynamite")
+            );
             if (type == null) return;
 
             Entity entity = world.ClassRegistry.CreateEntity(type);
