@@ -1,14 +1,29 @@
 {
   "type": "shapeless",
-  "ingredients": [
-    { "type": "item", "code": "game:blastingpowder", "quantity": 4 },
-    { "type": "item", "code": "game:titaniumnugget" },
-    { "type": "item", "code": "game:beeswax" },
-    { "type": "item", "code": "game:linen" }
-  ],
+
+  "ingredients": {
+    "powder": {
+      "type": "item",
+      "code": "game:blastingpowder",
+      "quantity": 3
+    },
+    "cloth": {
+      "type": "item",
+      "code": "game:linen"
+    },
+    "cap": {
+      "type": "item",
+      "code": "game:titaniumnugget"
+    },
+    "binder": {
+      "type": "item",
+      "code": "game:beeswax"
+    }
+  },
+
   "output": {
     "type": "item",
-    "code": "dynamitemod:dynamite-cap-titanium",
+    "code": "dynamitemod:dynamite-titanium",
     "quantity": 2
   }
 }

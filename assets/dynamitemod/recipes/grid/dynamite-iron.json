@@ -1,13 +1,25 @@
 {
   "type": "shapeless",
-  "ingredients": [
-    { "type": "item", "code": "game:blastingpowder", "quantity": 3 },
-    { "type": "item", "code": "game:linen" },
-    { "type": "item", "code": "game:ironnugget" }
-  ],
+
+  "ingredients": {
+    "powder": {
+      "type": "item",
+      "code": "game:blastingpowder",
+      "quantity": 2
+    },
+    "linen": {
+      "type": "item",
+      "code": "game:linen"
+    },
+    "cap": {
+      "type": "item",
+      "code": "game:ironnugget"
+    }
+  },
+
   "output": {
     "type": "item",
-    "code": "dynamitemod:dynamite-cap-iron",
+    "code": "dynamitemod:dynamite-iron",
     "quantity": 2
   }
 }
