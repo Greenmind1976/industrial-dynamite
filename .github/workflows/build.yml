@@ -53,7 +53,7 @@ jobs:
       - name: Create zip
         run: |
           cd $OUTPUT_DIR
-          zip -r $MOD_NAME-${{ steps.version.outputs.VERSION }}.zip dynamitemod.dll assets
+          zip -r $MOD_NAME-${{ steps.version.outputs.VERSION }}.zip modinfo.json dynamitemod.dll assets
 
       - name: Upload artifact (PR / Push)
         if: github.event_name != 'release'
