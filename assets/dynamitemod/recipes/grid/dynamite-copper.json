@@ -1,5 +1,6 @@
 {
-  "type": "shapeless",
+  "type": "grid",
+  "shapeless": true,
 
   "ingredients": {
     "powder": {

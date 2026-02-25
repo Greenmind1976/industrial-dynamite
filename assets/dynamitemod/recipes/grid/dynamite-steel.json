@@ -1,11 +1,12 @@
 {
-  "type": "shapeless",
+  "type": "grid",
+  "shapeless": true,
 
   "ingredients": {
     "powder": {
       "type": "item",
       "code": "game:blastingpowder",
-      "quantity": 3
+      "quantity": 4
     },
     "linen": {
       "type": "item",
