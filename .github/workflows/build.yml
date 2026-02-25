@@ -26,6 +26,11 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Debug file structure
+        run: |
+          pwd
+          ls -R
+
       - name: Restore
         run: dotnet restore ${{ env.PROJECT_PATH }}
 
