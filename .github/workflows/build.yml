@@ -14,7 +14,6 @@ env:
   MOD_NAME: industrial-dynamite
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
 
@@ -33,12 +32,19 @@ jobs:
       - name: Build
         run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
 
+      # ---------------------------
+      # Stage files correctly
+      # ---------------------------
       - name: Prepare package
         run: |
           mkdir -p $OUTPUT_DIR
+          cp modinfo.json $OUTPUT_DIR/
           cp $PROJECT_PATH/bin/Release/net8.0/$DLL_NAME $OUTPUT_DIR/
           cp -r assets $OUTPUT_DIR/
 
+      # ---------------------------
+      # Determine version
+      # ---------------------------
       - name: Determine version
         id: version
         run: |
@@ -50,20 +56,30 @@ jobs:
             echo "VERSION=dev-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
           fi
 
+      # ---------------------------
+      # Create correct VS zip
+      # ---------------------------
       - name: Create zip
         run: |
           cd $OUTPUT_DIR
-          zip -r $MOD_NAME-${{ steps.version.outputs.VERSION }}.zip modinfo.json dynamitemod.dll assets
+          zip -r ../$MOD_NAME-${{ steps.version.outputs.VERSION }}.zip *
+          cd ..
 
+      # ---------------------------
+      # Upload artifact
+      # ---------------------------
       - name: Upload artifact (PR / Push)
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
-          name: industrial-dynamite-${{ steps.version.outputs.VERSION }}
-          path: build/*.zip
+          name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
+          path: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}.zip
 
+      # ---------------------------
+      # Attach to Release
+      # ---------------------------
       - name: Upload to Release
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
-          files: build/*.zip
+          files: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}.zip
