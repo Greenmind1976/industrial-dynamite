@@ -61,8 +61,10 @@ jobs:
       # ---------------------------
       - name: Create zip
         run: |
-          cd build
+          rm -f ${{ env.MOD_NAME }}-*.zip
+          cd $OUTPUT_DIR
           zip -r ../${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}.zip .
+          cd ..
 
       # ---------------------------
       # Upload artifact
