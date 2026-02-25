@@ -59,12 +59,15 @@ jobs:
       # ---------------------------
       # Create correct VS zip
       # ---------------------------
-      - name: Create zip
-        run: |
-          rm -f ${{ env.MOD_NAME }}-*.zip
-          cd $OUTPUT_DIR
-          zip -r ../${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}.zip .
-          cd ..
+      - name: Upload artifact (PR / Push)
+        if: github.event_name != 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.MOD_NAME }}-${{ steps.version.outputs.VERSION }}
+          path: |
+            build/modinfo.json
+            build/dynamitemod.dll
+            build/assets
 
       # ---------------------------
       # Upload artifact
