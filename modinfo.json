@@ -2,8 +2,8 @@
   "type": "code",
   "modid": "dynamitemod",
   "name": "Industrial Dynamite",
-  "authors": ["Greenmind"],
-  "description": "Progression-based dynamite (copper, bronze, iron, steel, titanium).",
+  "authors": ["Garret Coffman"],
+  "description": "Progression-based dynamite.",
   "version": "0.1.0",
   "dependencies": {
     "game": "1.21.6"

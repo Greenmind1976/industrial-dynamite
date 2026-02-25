@@ -17,7 +17,7 @@ namespace DynamiteMod
             if (!firstEvent) return;
             if (byEntity.World.Side != EnumAppSide.Server) return;
 
-            handling = EnumHandHandling.PreventDefault;
+            handling = EnumHandHandling.Handled;
 
             if (slot?.Itemstack == null) return;
 
@@ -27,7 +27,7 @@ namespace DynamiteMod
             if (cap == "titanium")
             {
                 if (blockSel == null) return;
-                PlaceCharge(world, slot, byEntity, blockSel, cap);
+                PlaceCharge(world, slot, blockSel, cap);
             }
             else
             {
@@ -77,7 +77,6 @@ namespace DynamiteMod
         private void PlaceCharge(
             IWorldAccessor world,
             ItemSlot slot,
-            EntityAgent byEntity,
             BlockSelection blockSel,
             string cap)
         {
