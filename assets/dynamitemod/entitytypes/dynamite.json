@@ -1,6 +1,7 @@
 {
   "code": "dynamite",
-  "class": "EntityDynamite",
+  "class": "dynamite",
+
   "collisionBox": {
     "size": { "x": 0.3, "y": 0.3, "z": 0.3 }
   },

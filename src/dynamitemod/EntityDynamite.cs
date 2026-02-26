@@ -1,25 +1,12 @@
-using System;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
-using Vintagestory.API.MathTools;
 
-namespace DynamiteMod
+namespace dynamitemod
 {
     public class EntityDynamite : Entity
     {
-        private float timer;
-        private float fuseTime;
-        private string cap;
-
-        public override void OnEntitySpawn()
-        {
-            base.OnEntitySpawn();
-
-            cap = Attributes.GetString("cap", "copper");
-
-            fuseTime = cap == "titanium" ? 5f : 3f;
-            timer = 0f;
-        }
+        float timer = 0f;
+        float fuse = 3f;
 
         public override void OnGameTick(float dt)
         {
@@ -29,7 +16,7 @@ namespace DynamiteMod
 
             timer += dt;
 
-            if (timer >= fuseTime)
+            if (timer >= fuse)
             {
                 World.BlockAccessor.BreakBlock(Pos.AsBlockPos, null);
                 Die();
