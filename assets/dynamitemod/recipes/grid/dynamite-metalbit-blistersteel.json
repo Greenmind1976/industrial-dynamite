@@ -10,7 +10,7 @@
     },
     "linen": {
       "type": "item",
-      "code": "game:linen"
+      "code": "game:linen-*-down"
     },
     "cap": {
       "type": "item",
