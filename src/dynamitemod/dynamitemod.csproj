@@ -22,6 +22,21 @@
       <HintPath>../../lib/Vintagestory.dll</HintPath>
       <Private>false</Private>
     </Reference>
+
+    <Reference Include="VSSurvivalMod">
+      <HintPath>../../lib/VSSurvivalMod.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="VSEssentials">
+      <HintPath>../../lib/VSEssentials.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="VSCreativeMod">
+      <HintPath>../../lib/VSCreativeMod.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>
