@@ -1,16 +1,16 @@
-[
-  {
-    "type": "grid",
-    "pattern": ["P"],
-    "ingredients": {
-      "P": {
-        "type": "item",
-        "code": "game:blastingpowder"
-      }
-    },
-    "output": {
+
+{
+	"ingredientPattern": "P,P,P",
+	"width": 1,
+	"height": 3,
+  "ingredients": {
+    "P": {
       "type": "item",
-      "code": "dynamitemod:dynamite-copper"
-      }
+      "code": "game:blastingpowder"
+    }
+  },
+  "output": {
+    "type": "item",
+    "code": "dynamitemod:dynamite-copper"
   }
-]
+}
