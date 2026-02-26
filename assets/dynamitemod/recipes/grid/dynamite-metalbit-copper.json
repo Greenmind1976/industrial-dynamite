@@ -1,14 +1,22 @@
 {
   "type": "grid",
-  "shapeless": true,
 
-  "ingredients": [
-    {
-      "type": "item",
-      "code": "game:blastingpowder",
-      "quantity": 2
-    }
+  "pattern": [
+    " P ",
+    "PCP",
+    " P "
   ],
+
+  "ingredients": {
+    "P": {
+      "type": "item",
+      "code": "game:blastingpowder"
+    },
+    "C": {
+      "type": "item",
+      "code": "game:nugget-nativecopper"
+    }
+  },
 
   "output": {
     "type": "item",
