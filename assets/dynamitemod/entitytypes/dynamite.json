@@ -1,11 +1,10 @@
 {
   "code": "dynamite",
-  "class": "ItemDynamite",
+  "class": "dynamite",
 
   "collisionBox": {
     "size": { "x": 0.3, "y": 0.3, "z": 0.3 }
   },
-
   "selectionBox": {
     "size": { "x": 0.3, "y": 0.3, "z": 0.3 }
   }
