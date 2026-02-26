@@ -3,19 +3,9 @@
   "shapeless": true,
 
   "ingredients": {
-    "powder": {
-      "type": "item",
-      "code": "game:blastingpowder",
-      "quantity": 2
-    },
-    "linen": {
-      "type": "item",
-      "code": "game:linen"
-    },
-    "cap": {
-      "type": "item",
-      "code": "game:coppernugget"
-    }
+    "powder": { "type": "item", "code": "game:blastingpowder", "quantity": 2 },
+    "linen":  { "type": "item", "code": "game:linen-normal" },
+    "cap":    { "type": "item", "code": "game:nugget-copper" }
   },
 
   "output": {
