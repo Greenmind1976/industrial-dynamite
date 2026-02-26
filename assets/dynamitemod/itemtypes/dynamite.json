@@ -15,7 +15,14 @@
     "general": [ "*" ]
   },
 
-  "textures": {
-    "all": { "base": "dynamitemod:item/dynamite-{cap}" }
-  }
+  "texture": {
+    "base": "dynamitemod:item/dynamite-{cap}"
+  },
+
+  "heldInteractionHelp": [
+    {
+      "actionLangCode": "heldhelp-use",
+      "mouseButton": "Right"
+    }
+  ]
 }
