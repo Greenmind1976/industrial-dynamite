@@ -1,26 +1,16 @@
-{
-  "type": "grid",
-
-  "pattern": [
-    " P ",
-    "PCP",
-    " P "
-  ],
-
-  "ingredients": {
-    "P": {
-      "type": "item",
-      "code": "game:blastingpowder"
+[
+  {
+    "type": "grid",
+    "pattern": ["P"],
+    "ingredients": {
+      "P": {
+        "type": "item",
+        "code": "game:blastingpowder"
+      }
     },
-    "C": {
+    "output": {
       "type": "item",
-      "code": "game:nugget-nativecopper"
-    }
-  },
-
-  "output": {
-    "type": "item",
-    "code": "dynamitemod:dynamite-copper",
-    "quantity": 2
+      "code": "dynamitemod:dynamite-copper"
+      }
   }
-}
+]
