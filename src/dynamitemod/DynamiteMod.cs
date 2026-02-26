@@ -1,6 +1,6 @@
 using Vintagestory.API.Common;
 
-namespace DynamiteMod
+namespace dynamitemod
 {
     public class DynamiteMod : ModSystem
     {

@@ -1,7 +1,7 @@
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 
-namespace DynamiteMod
+namespace dynamitemod
 {
     public class EntityDynamite : Entity
     {
