@@ -6,6 +6,6 @@
   "description": "Progression-based dynamite.",
   "version": "0.1.0",
   "dependencies": {
-    "game": "1.21.6"
+    "game": "1.21.0"
   }
 }
