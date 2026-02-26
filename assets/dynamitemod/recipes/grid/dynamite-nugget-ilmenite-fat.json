@@ -1,0 +1,30 @@
+{
+  "type": "grid",
+  "shapeless": true,
+
+  "ingredients": {
+    "powder": {
+      "type": "item",
+      "code": "game:blastingpowder",
+      "quantity": 4
+    },
+    "linen": {
+      "type": "item",
+      "code": "game:linen"
+    },
+    "cap": {
+      "type": "item",
+      "code": "game:nugget-ilmenite"
+    },
+    "binder": {
+      "type": "item",
+      "code": "game:fat"
+    }
+  },
+
+  "output": {
+    "type": "item",
+    "code": "dynamitemod:dynamite-titanium",
+    "quantity": 2
+  }
+}
