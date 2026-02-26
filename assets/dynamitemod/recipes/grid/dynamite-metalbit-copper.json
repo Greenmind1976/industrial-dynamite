@@ -7,14 +7,6 @@
       "type": "item",
       "code": "game:blastingpowder",
       "quantity": 2
-    },
-    "linen": {
-      "type": "item",
-      "code": "game:linen-normal-down"
-    },
-    "cap": {
-      "type": "item",
-      "code": "game:metalbit-copper"
     }
   },
 
