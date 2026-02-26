@@ -2,13 +2,13 @@
   "type": "grid",
   "shapeless": true,
 
-  "ingredients": {
-    "powder": {
+  "ingredients": [
+    {
       "type": "item",
       "code": "game:blastingpowder",
       "quantity": 2
     }
-  },
+  ],
 
   "output": {
     "type": "item",
