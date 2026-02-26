@@ -6,7 +6,7 @@ namespace DynamiteMod
 {
     public class ItemDynamite : Item
     {
-        public override bool OnHeldInteractStart(
+        public override void OnHeldInteractStart(
             ItemSlot slot,
             EntityAgent byEntity,
             BlockSelection blockSel,
@@ -14,38 +14,33 @@ namespace DynamiteMod
             bool firstEvent,
             ref EnumHandHandling handling)
         {
-            // Debug log (will help confirm this method is actually being called)
-            byEntity?.World?.Logger?.Notification("[dynamitemod] Dynamite right click triggered");
-
-            if (!firstEvent) return false;
-            if (byEntity == null || byEntity.World == null) return false;
-
-            // We only spawn entities server-side
-            if (byEntity.World.Side != EnumAppSide.Server) return false;
+            byEntity.World.Logger.Notification("DYNAMITE CLICKED");
+            if (!firstEvent) return;
+            if (byEntity.World.Side != EnumAppSide.Server) return;
 
             handling = EnumHandHandling.Handled;
 
-            if (slot?.Itemstack == null) return false;
+            if (slot?.Itemstack == null) return;
 
             string cap = slot.Itemstack.Collectible.Variant?["cap"] ?? "copper";
             IWorldAccessor world = byEntity.World;
 
-            // Titanium: place charge on a block face (requires a block selection)
             if (cap == "titanium")
             {
-                if (blockSel == null) return false;
+                if (blockSel == null) return;
                 PlaceCharge(world, slot, blockSel, cap);
-                return true;
             }
-
-            // Other caps: throw charge
-            ThrowCharge(world, slot, byEntity, cap);
-            return true;
+            else
+            {
+                ThrowCharge(world, slot, byEntity, cap);
+            }
         }
 
         private void ThrowCharge(IWorldAccessor world, ItemSlot slot, EntityAgent byEntity, string cap)
         {
-            EntityProperties type = world.GetEntityType(new AssetLocation("dynamitemod", "dynamite"));
+            EntityProperties type = world.GetEntityType(
+                new AssetLocation("dynamitemod", "dynamite")
+            );
             if (type == null) return;
 
             Entity entity = world.ClassRegistry.CreateEntity(type);
@@ -80,9 +75,15 @@ namespace DynamiteMod
             slot.MarkDirty();
         }
 
-        private void PlaceCharge(IWorldAccessor world, ItemSlot slot, BlockSelection blockSel, string cap)
+        private void PlaceCharge(
+            IWorldAccessor world,
+            ItemSlot slot,
+            BlockSelection blockSel,
+            string cap)
         {
-            EntityProperties type = world.GetEntityType(new AssetLocation("dynamitemod", "dynamite"));
+            EntityProperties type = world.GetEntityType(
+                new AssetLocation("dynamitemod", "dynamite")
+            );
             if (type == null) return;
 
             Entity entity = world.ClassRegistry.CreateEntity(type);
